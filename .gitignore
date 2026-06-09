@@ -1,0 +1,8 @@
+# bmImgType auto-generated webp variants and metadata
+*.webp
+*.webp.json
+
+# Editor / OS noise
+.DS_Store
+*.swp
+*~
