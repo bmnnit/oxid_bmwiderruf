@@ -1,0 +1,69 @@
+{% set vals = oView.getFormValues() %}
+<form class="needs-validation" action="{{ oViewConf.getSslSelfLink()|raw }}" method="post" novalidate>
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="fnc" value="send">
+    <input type="hidden" name="cl" value="widerruf">
+
+    <div class="mb-3 form-floating">
+        <input type="text"
+               name="name"
+               id="widerruf_name"
+               maxlength="255"
+               placeholder=" "
+               value="{{ vals.name }}"
+               class="form-control"
+               required>
+        <label class="req" for="widerruf_name">
+            {{ translate({ ident: "BMNNIT_WIDERRUF_NAME" }) }}
+        </label>
+    </div>
+
+    <div class="mb-3 form-floating">
+        <input type="text"
+               name="ordernr"
+               id="widerruf_ordernr"
+               maxlength="20"
+               placeholder=" "
+               value="{{ vals.ordernr }}"
+               class="form-control"
+               required>
+        <label class="req" for="widerruf_ordernr">
+            {{ translate({ ident: "BMNNIT_WIDERRUF_ORDERNR" }) }}
+        </label>
+    </div>
+
+    <div class="mb-3 form-floating">
+        <input type="email"
+               name="email"
+               id="widerruf_email"
+               maxlength="255"
+               placeholder=" "
+               value="{{ vals.email }}"
+               class="form-control"
+               required>
+        <label class="req" for="widerruf_email">
+            {{ translate({ ident: "BMNNIT_WIDERRUF_EMAIL" }) }}
+        </label>
+    </div>
+
+    <div class="mb-3 form-floating">
+        <textarea rows="8"
+                  name="message"
+                  id="widerruf_message"
+                  class="form-control"
+                  placeholder=" ">{{ vals.message }}</textarea>
+        <label for="widerruf_message">
+            {{ translate({ ident: "BMNNIT_WIDERRUF_REASON" }) }}
+        </label>
+    </div>
+
+    <div class="mb-3">
+        <p class="req-warning">{{ translate({ ident: "COMPLETE_MARKED_FIELDS" }) }}</p>
+        <button class="btn btn-highlight" type="submit">
+            {{ translate({ ident: "BMNNIT_WIDERRUF_SUBMIT" }) }}
+        </button>
+        <p class="text-muted mt-2">
+            {{ translate({ ident: "BMNNIT_WIDERRUF_BUTTON_DISCLAIMER" }) }}
+        </p>
+    </div>
+</form>

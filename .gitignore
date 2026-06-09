@@ -1,0 +1,5 @@
+*.webp
+*.webp.json
+.DS_Store
+*.swp
+*~

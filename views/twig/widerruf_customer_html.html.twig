@@ -1,0 +1,37 @@
+{% set shop = oEmailView.getShop() %}
+{% set oViewConf = oEmailView.getViewConfig() %}
+
+{% include "email/html/header.html.twig" with { title: shop.oxshops__oxname.value } %}
+
+    <p>{{ translate({ ident: "GREETING" }) }} {{ submission.bmwiderruf__oxname.value }},</p>
+
+    <p>{{ translate({ ident: "BMNNIT_WIDERRUF_EMAIL_CUSTOMER_INTRO" }) }}</p>
+
+    <table cellpadding="4" cellspacing="0" style="border-collapse:collapse;">
+        <tr>
+            <td><strong>{{ translate({ ident: "BMNNIT_WIDERRUF_NAME" }) }}:</strong></td>
+            <td>{{ submission.bmwiderruf__oxname.value }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ translate({ ident: "BMNNIT_WIDERRUF_ORDERNR" }) }}:</strong></td>
+            <td>{{ submission.bmwiderruf__oxordernr.value }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ translate({ ident: "BMNNIT_WIDERRUF_EMAIL" }) }}:</strong></td>
+            <td>{{ submission.bmwiderruf__oxemail.value }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ translate({ ident: "BMNNIT_WIDERRUF_ADMIN_CREATED" }) }}:</strong></td>
+            <td>{{ submission.bmwiderruf__oxcreated.value }}</td>
+        </tr>
+        {% if submission.bmwiderruf__oxmessage.value %}
+            <tr>
+                <td valign="top"><strong>{{ translate({ ident: "BMNNIT_WIDERRUF_REASON" }) }}:</strong></td>
+                <td>{{ submission.bmwiderruf__oxmessage.value|nl2br }}</td>
+            </tr>
+        {% endif %}
+    </table>
+
+    <p>{{ translate({ ident: "BMNNIT_WIDERRUF_EMAIL_CUSTOMER_OUTRO" }) }}</p>
+
+{% include "email/html/footer.html.twig" %}

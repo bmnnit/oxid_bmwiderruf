@@ -1,0 +1,13 @@
+{% capture append="oxidBlock_content" %}
+    <h1 class="page-header">{{ translate({ ident: "BMNNIT_WIDERRUF_THANKS_TITLE" }) }}</h1>
+
+    <div class="row">
+        <div class="col-12 col-lg-9">
+            <div class="alert alert-info">
+                {{ translate({ ident: "BMNNIT_WIDERRUF_THANKS_BODY" }) }}
+            </div>
+        </div>
+    </div>
+{% endcapture %}
+
+{% include "layout/page.html.twig" %}

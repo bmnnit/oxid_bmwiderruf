@@ -1,0 +1,17 @@
+{% set shop = oEmailView.getShop() %}
+{% autoescape false %}{{ translate({ ident: "GREETING" }) }} {{ submission.bmwiderruf__oxname.value }},
+
+{{ translate({ ident: "BMNNIT_WIDERRUF_EMAIL_CUSTOMER_INTRO" }) }}
+
+{{ translate({ ident: "BMNNIT_WIDERRUF_NAME" }) }}: {{ submission.bmwiderruf__oxname.value }}
+{{ translate({ ident: "BMNNIT_WIDERRUF_ORDERNR" }) }}: {{ submission.bmwiderruf__oxordernr.value }}
+{{ translate({ ident: "BMNNIT_WIDERRUF_EMAIL" }) }}: {{ submission.bmwiderruf__oxemail.value }}
+{{ translate({ ident: "BMNNIT_WIDERRUF_ADMIN_CREATED" }) }}: {{ submission.bmwiderruf__oxcreated.value }}
+{% if submission.bmwiderruf__oxmessage.value %}{{ translate({ ident: "BMNNIT_WIDERRUF_REASON" }) }}: {{ submission.bmwiderruf__oxmessage.value }}
+{% endif %}
+{{ translate({ ident: "BMNNIT_WIDERRUF_EMAIL_CUSTOMER_OUTRO" }) }}
+
+--
+{{ shop.oxshops__oxname.value }}
+{{ shop.oxshops__oxorderemail.value }}
+{% endautoescape %}

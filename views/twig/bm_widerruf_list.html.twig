@@ -1,0 +1,46 @@
+{% include "headitem.html.twig" with { title: translate({ ident: "BMNNIT_WIDERRUF_ADMIN_TITLE" }), box: " " } %}
+
+<h2 style="padding:8px 12px 0">{{ translate({ ident: "BMNNIT_WIDERRUF_ADMIN_TITLE" }) }}</h2>
+<p class="listitem" style="padding:0 12px 8px">
+    {{ translate({ ident: "BMNNIT_WIDERRUF_ADMIN_COUNT" }) }}: {{ rowsCnt }}
+</p>
+
+{% if rowsCnt == 0 %}
+    <p class="listitem" style="padding:8px 12px">
+        <b>{{ translate({ ident: "BMNNIT_WIDERRUF_ADMIN_EMPTY" }) }}</b>
+    </p>
+{% else %}
+    <table cellspacing="0" cellpadding="0" border="0" width="99%" style="margin:8px 4px">
+        <colgroup>
+            <col width="14%">
+            <col width="9%">
+            <col width="14%">
+            <col width="18%">
+            <col width="14%">
+            <col width="22%">
+            <col width="9%">
+        </colgroup>
+        <tr>
+            <td class="listheader">{{ translate({ ident: "BMNNIT_WIDERRUF_ADMIN_CREATED" }) }}</td>
+            <td class="listheader">{{ translate({ ident: "BMNNIT_WIDERRUF_ORDERNR" }) }}</td>
+            <td class="listheader">{{ translate({ ident: "BMNNIT_WIDERRUF_NAME" }) }}</td>
+            <td class="listheader">{{ translate({ ident: "BMNNIT_WIDERRUF_EMAIL" }) }}</td>
+            <td class="listheader">{{ translate({ ident: "BMNNIT_WIDERRUF_ADMIN_CUSTOMER" }) }}</td>
+            <td class="listheader">{{ translate({ ident: "BMNNIT_WIDERRUF_REASON" }) }}</td>
+            <td class="listheader">IP</td>
+        </tr>
+        {% set blWhite = "" %}
+        {% for row in rows %}
+            <tr>
+                <td class="listitem{{ blWhite }}" valign="top" nowrap>{{ row.OXCREATED }}</td>
+                <td class="listitem{{ blWhite }}" valign="top">{{ row.OXORDERNR }}</td>
+                <td class="listitem{{ blWhite }}" valign="top">{{ row.OXNAME }}</td>
+                <td class="listitem{{ blWhite }}" valign="top">{{ row.OXEMAIL }}</td>
+                <td class="listitem{{ blWhite }}" valign="top">{{ row.BILLFNAME }} {{ row.BILLLNAME }}</td>
+                <td class="listitem{{ blWhite }}" valign="top">{{ row.OXMESSAGE|nl2br }}</td>
+                <td class="listitem{{ blWhite }}" valign="top">{{ row.OXIP }}</td>
+            </tr>
+            {% if blWhite == "2" %}{% set blWhite = "" %}{% else %}{% set blWhite = "2" %}{% endif %}
+        {% endfor %}
+    </table>
+{% endif %}
