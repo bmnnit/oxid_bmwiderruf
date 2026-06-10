@@ -4,6 +4,12 @@ OXID-Modul, das einen rechtskonformen "Widerrufsbutton" inkl. Bestätigungsseite
 
 Pflicht ab **19.06.2026** für alle B2C-Online-Händler in Deutschland.
 
+> **Welche Variante brauche ich?**
+> - **OXID 6.5 / Smarty** → Branch [`main`](https://github.com/bmnnit/oxid_bmwiderruf) (diese Datei)
+> - **OXID 7.3 / Twig** → Branch [`twig`](https://github.com/bmnnit/oxid_bmwiderruf/tree/twig)
+>
+> Die beiden Branches sind unabhängige Implementierungen (Smarty- vs. Twig-Templates, leicht unterschiedliche OXID-API), nicht ein Fork-and-merge-Workflow. Wähle den Branch, der zu deiner OXID-Version passt.
+
 > Minimal solution. OXID wird voraussichtlich eine eigene Lösung nachliefern — bis dahin schliesst dieses Modul die Lücke.
 > Achtung: CE-Edition berücksichtigt die `OXSHOPID`-Spalte nicht (Single-Shop-Annahme).
 > Mit Lizenz, aber du schuldest mir ein Bier 🍺
